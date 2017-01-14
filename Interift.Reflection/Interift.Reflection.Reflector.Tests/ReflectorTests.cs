@@ -28,6 +28,26 @@ namespace Interift.Reflection.Tests {
             Assert.AreEqual("val1", obj1.PublicStringField);
             Assert.AreEqual("val2", obj2.PublicStringField);
         }
+
+        [TestMethod]
+        public void GetFieldValueTest1() {
+            BlandObject obj = new BlandObject();
+            var myField = obj.GetFieldValue<string>("_privateStringField");
+            Assert.AreEqual(obj.PublicStringField, myField);
+        }
+
+        [TestMethod]
+        public void GetPropertyTest1() {
+            BlandObject obj = new BlandObject();
+            var myProp = obj.GetProperty("PublicStringField");
+            Assert.AreEqual(obj.PublicStringField, myProp.GetValue(obj));
+        }
+
+        [TestMethod]
+        public void GetPropertyValueTest1() {
+            BlandObject obj = new BlandObject();
+            var myPropVal = obj.GetPropertyValue("PublicStringField");
+        }
     }
 
 

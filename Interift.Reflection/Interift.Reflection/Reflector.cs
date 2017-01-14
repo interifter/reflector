@@ -86,5 +86,17 @@ namespace Interift.Reflection
             return t.GetProperty(propertyName, flags);
         }
 
+
+        public static object GetPropertyValue(object obj, string propertyName, BindingFlags flags = DEFAULT_FLAGS) {
+            return GetProperty(obj, propertyName, flags).GetValue(obj);
+        }
+
+
+        public static T GetPropertyValue<T>(object obj, string propertyName, BindingFlags flags = DEFAULT_FLAGS) {
+            return (T)GetPropertyValue(obj, propertyName, flags);
+        }
+
+
+
     }
 }
