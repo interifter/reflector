@@ -87,15 +87,39 @@ namespace Interift.Reflection
         }
 
 
+        /// <summary>
+        /// Returns the value of the specified propery in the object instance
+        /// </summary>
+        /// <param name="obj">The object to get the property value from</param>
+        /// <param name="fieldName">The name of the property in the object</param>
+        /// <param name="flags">The binding flags to apply</param>
+        /// <returns>The value of the given property from the object instance.</returns>
         public static object GetPropertyValue(object obj, string propertyName, BindingFlags flags = DEFAULT_FLAGS) {
             return GetProperty(obj, propertyName, flags).GetValue(obj);
         }
 
 
+        /// <summary>
+        /// Returns the value of the specified propery in the object instance
+        /// </summary>
+        /// <typeparam name="T">The expected type of the property value</typeparam>
+        /// <param name="obj">The object to get the property value from</param>
+        /// <param name="fieldName">The name of the property in the object</param>
+        /// <param name="flags">The binding flags to apply</param>
+        /// <returns>The value of the given property from the object instance.</returns>
         public static T GetPropertyValue<T>(object obj, string propertyName, BindingFlags flags = DEFAULT_FLAGS) {
             return (T)GetPropertyValue(obj, propertyName, flags);
         }
 
+
+        public static object CreateInstance(Type baseType, string name) {
+            var result = Activator.CreateInstanceFrom(baseType.Assembly.CodeBase, baseType.Namespace + $".{name}", true, BindingFlags.Default, null, null, null, null);
+            return result.Unwrap();
+        }
+
+        public static T CreateInstance<T>(Type baseType, string name) {
+            return (T)CreateInstance(baseType, name);
+        }
 
 
     }

@@ -46,7 +46,20 @@ namespace Interift.Reflection.Tests {
         [TestMethod]
         public void GetPropertyValueTest1() {
             BlandObject obj = new BlandObject();
-            var myPropVal = obj.GetPropertyValue("PublicStringField");
+            var myPropVal = obj.GetPropertyValue<string>("PublicStringField");
+            Assert.AreEqual(obj.PublicStringField, myPropVal);
+        }
+
+
+        [TestMethod]
+        public void ProcessDynamicInputTest1() {
+            var inputs = new [] { "Blackberry", "iPhone", "Android", "Nokia" };
+
+            foreach(var input in inputs) {
+                var myObj = Reflector.CreateInstance<Phone>(typeof(Phone), input);
+                Assert.AreEqual(myObj.Name, input);
+                Assert.IsTrue(myObj.GetType().Name.Equals(input, StringComparison.OrdinalIgnoreCase));
+            }
         }
     }
 

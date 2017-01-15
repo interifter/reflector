@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Interift.Reflector</id>
+    <title>Interift.Reflector</title>
+    <version>0.0.2-rc</version>
+    <authors>interifter</authors>
+    <owners>interifter</owners>
+    <licenseUrl>https://github.com/interifter/reflector/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/interifter/reflector</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>
+      Reflector Library to make it convenient to make .NET reflection calls. Very useful for dynamic user input.
+    </description>
+    <releaseNotes>Adding a few more methods for getting field and property values.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>.NET C# Reflection Reflector</tags>
+    
+  </metadata>
+  <files>
+    <file src="Interift.Reflection\bin\Debug\Interift.Reflection.dll" target="lib\AnyCPU\Interift.Reflection.dll" />
+  </files>
+</package>

@@ -53,6 +53,8 @@
     <Compile Include="ReflectorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\BlandObject.cs" />
+    <Compile Include="Resources\Phones.cs" />
+    <Compile Include="Resources\Phone.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Interift.Reflection\Interift.Reflection.csproj">

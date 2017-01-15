@@ -32,6 +32,14 @@ namespace Interift.Reflection {
             return (T)GetPropertyValue(obj, property, flags);
         }
 
+        public static object CreateInstance(this Type baseType, string inherited) {
+            return Reflector.CreateInstance(baseType, inherited);
+        }
+
+        public static T CreateInstance<T>(this T baseType, string inherited) {
+            return (T)CreateInstance(typeof(T), inherited);
+        }
+
         
     }
 }
